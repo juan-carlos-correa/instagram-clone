@@ -7,6 +7,7 @@ const Post = props => {
   return (
     <View style={ styles.container }>
       <Text>Post</Text>
+      <Button title="Autor" onPress={ () => navigation.navigate('Author') }/>
       <Button title="Comentarios" onPress={ () => navigation.navigate('Comments') }/>
     </View>
   )

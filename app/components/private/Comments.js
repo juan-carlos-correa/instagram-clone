@@ -1,15 +1,17 @@
 import React from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
 
-const Comments = props => {
-  const { navigation } = props
+class Comments extends React.Component {
+  render () {
+    const { navigation } = this.props
 
-  return (
-    <View style={ styles.container }>
-      <Text>Comments</Text>
-      <Button title="Autor" onPress={ () => navigation.navigate('Author') }/>
-    </View>
-  )
+    return (
+      <View style={ styles.container }>
+        <Text>Comments</Text>
+        <Button title="Autor" onPress={ () => navigation.navigate('Author') }/>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({

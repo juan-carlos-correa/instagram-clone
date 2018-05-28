@@ -7,6 +7,7 @@ const Search = props => {
   return (
     <View style={ styles.container }>
       <Text>Search</Text>
+      <Button title="Post" onPress={ () => navigation.navigate('Post') } />
     </View>
   )
 }

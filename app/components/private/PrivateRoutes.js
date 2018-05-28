@@ -3,11 +3,11 @@ import Add from './Add'
 import Follow from './Follow'
 import StackHome from './StackHome'
 import Profile from './Profile'
-import Search from './Search'
+import StackSearch from './StackSearch'
 
 const PrivateRoutes = createBottomTabNavigator({
   Home: { screen: StackHome },
-  Search: { screen: Search },
+  Search: { screen: StackSearch },
   Add: { screen: Add },
   Follow: { screen: Follow },
   Profiles: { screen: Profile }
