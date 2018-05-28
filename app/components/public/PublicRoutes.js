@@ -6,6 +6,9 @@ import SignUp from './SignUp'
 const PublicRoutes = createStackNavigator({
   SignIn: { screen: SigIn },
   SignUp: { screen: SignUp }
+},
+{
+  headerMode: 'none'
 })
 
 export default PublicRoutes
