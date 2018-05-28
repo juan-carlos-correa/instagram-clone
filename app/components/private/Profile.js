@@ -1,14 +1,13 @@
 import React from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
 
-const Home = props => {
+const Profiles = props => {
   const { navigation } = props
 
   return (
     <View style={ styles.container }>
-      <Text>Home</Text>
-      <Button title="Autor" onPress={ () => navigation.navigate('Author') }/>
-      <Button title="Comentarios" onPress={ () => navigation.navigate('Comments') }/>
+      <Text>Profiles</Text>
+      <Button title="Post" onPress={ () => navigation.navigate('Post') }/>
     </View>
   )
 }
@@ -20,4 +19,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Home
+export default Profiles
