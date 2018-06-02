@@ -6,12 +6,6 @@ import MyField from '../../../Shared/MyField'
 const validate = (values) => {
   const errors = {}
 
-  if (!values.username) {
-    errors.username = 'required'
-  } else if (values.username.length < 3 || values.username.length > 20) {
-    errors.username = 'Username must be between 3 and 10 characters'
-  }
-
   if (!values.email) {
     errors.email = 'required'
   } else if (! /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(values.email)) {
@@ -24,23 +18,12 @@ const validate = (values) => {
     errors.password = 'Password must be at least 5 characters'
   }
 
-  if (!values.repeatPassword) {
-    errors.repeatPassword = 'required'
-  } else if (values.password && values.password !== values.repeatPassword) {
-    errors.repeatPassword = 'Passwords must match'
-  }
-
   return errors
 }
 
-const SignUpForm = props => {
+const SignInForm = props => {
   return (
     <View>
-      <Field
-        name="username"
-        component={MyField}
-        placeholder="Username"
-      />
       <Field
         keyboardType='email-address'
         name="email"
@@ -53,18 +36,12 @@ const SignUpForm = props => {
         component={MyField}
         placeholder="Password"
       />
-      <Field
-        secureTextEntry={true}
-        name="repeatPassword"
-        component={MyField}
-        placeholder="Repeat password"
-      />
-      <Button title="SignUp" onPress={props.handleSubmit(values => console.log(values))} />
+      <Button title="SignIn" onPress={props.handleSubmit(values => console.log(values))} />
     </View>
   )
 }
 
 export default reduxForm({
-  form: 'SignUpForm',
+  form: 'SignInForm',
   validate
-})(SignUpForm)
+})(SignInForm)

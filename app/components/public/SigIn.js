@@ -1,13 +1,14 @@
 import React from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
+import SignForm from './Forms/SignIn'
 
 const SignIn = props => {
   const { navigation } = props
 
   return (
     <View style={ styles.container }>
-      <Text>SignIn</Text>
+      <SignForm />
       <Button title="SignUp" onPress={() => navigation.navigate('SignUp')}/>
     </View>
   )
