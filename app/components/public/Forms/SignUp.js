@@ -16,10 +16,29 @@ const MyField = props => (
 const SignUpForm = props => {
   return (
     <View>
-      <Field name="username" component={MyField} placeholder="Username"/>
-      <Field keyboardType='email-address' name="email" component={MyField} placeholder="Email"/>
-      <Field secureTextEntry={true} name="password" component={MyField} placeholder="Password"/>
-      <Field secureTextEntry={true} name="repeatPassword" component={MyField} placeholder="Repeat password"/>
+      <Field
+        name="username"
+        component={MyField}
+        placeholder="Username"
+      />
+      <Field
+        keyboardType='email-address'
+        name="email"
+        component={MyField}
+        placeholder="Email"
+      />
+      <Field
+        secureTextEntry={true}
+        name="password"
+        component={MyField}
+        placeholder="Password"
+      />
+      <Field
+        secureTextEntry={true}
+        name="repeatPassword"
+        component={MyField}
+        placeholder="Repeat password"
+      />
       <Button title="SignUp" onPress={props.handleSubmit(values => console.log(values))} />
     </View>
   )

@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
 import PublicRoutes from './app/components/public/PublicRoutes'
 // import PrivateRoutes from './app/components/private/PrivateRoutes'
 import { Provider } from 'react-redux'
@@ -22,5 +22,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center'
-  },
-});
+  }
+})

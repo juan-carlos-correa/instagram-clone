@@ -1,6 +1,9 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
+  "scripts": {
+    "eslint": "eslint *.js"
+  },
   "dependencies": {
     "expo": "^27.0.1",
     "react": "16.3.1",
