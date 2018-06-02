@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
 
 const SignIn = props => {
   const { navigation } = props
@@ -19,4 +20,12 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SignIn
+const mapStateToProps = (state) => {
+  return {
+    state
+  }
+}
+
+const mapDispatchToProps = null
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
