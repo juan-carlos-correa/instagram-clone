@@ -7,6 +7,7 @@ const Follow = props => {
   return (
     <View style={ styles.container }>
       <Text>Follow</Text>
+      <Button title="Autor" onPress={() => navigation.navigate('Author') }/>
     </View>
   )
 }

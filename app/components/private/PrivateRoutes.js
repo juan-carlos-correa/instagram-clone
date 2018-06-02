@@ -1,15 +1,15 @@
 import { createBottomTabNavigator } from 'react-navigation'
 import Add from './Add'
-import Follow from './Follow'
 import StackHome from './StackHome'
 import Profile from './Profile'
 import StackSearch from './StackSearch'
+import StackFollow from './StackFollow'
 
 const PrivateRoutes = createBottomTabNavigator({
   Home: { screen: StackHome },
   Search: { screen: StackSearch },
   Add: { screen: Add },
-  Follow: { screen: Follow },
+  Follow: { screen: StackFollow },
   Profiles: { screen: Profile }
 })
 
