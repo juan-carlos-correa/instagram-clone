@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, Button, View, StyleSheet } from 'react-native'
-import SignUpForm from './Forms/SignUp'
+import SignUpForm from './Forms/SignUpForm'
 import { connect } from 'react-redux'
 
 const SignUp = props => {
@@ -10,7 +10,12 @@ const SignUp = props => {
     <View style={ styles.container }>
       <Text>SignUp</Text>
       <SignUpForm />
-      <Button title="SignIn" onPress={ () => navigation.goBack() } />
+      <View style={{ marginTop: 16 }}>
+        <Button
+          title="SignIn"
+          onPress={ () => navigation.goBack() }
+        />
+      </View>
     </View>
   )
 }
@@ -18,7 +23,8 @@ const SignUp = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#ffffff',
   }
 })
 

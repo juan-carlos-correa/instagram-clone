@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import SignForm from './Forms/SignIn'
+import SignForm from './Forms/SignInForm'
 
 const SignIn = props => {
   const { navigation } = props
@@ -9,7 +9,12 @@ const SignIn = props => {
   return (
     <View style={ styles.container }>
       <SignForm />
-      <Button title="SignUp" onPress={() => navigation.navigate('SignUp')}/>
+      <View style={{ marginTop: 16 }}>
+        <Button
+          title="SignUp"
+          onPress={() => navigation.navigate('SignUp')}
+        />
+      </View>
     </View>
   )
 }
@@ -17,7 +22,8 @@ const SignIn = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#ffffff',
   }
 })
 

@@ -36,7 +36,7 @@ const SignInForm = props => {
         component={MyField}
         placeholder="Password"
       />
-      <Button title="SignIn" onPress={props.handleSubmit(values => console.log(values))} />
+      <Button title="Login" onPress={props.handleSubmit(values => console.log(values))} />
     </View>
   )
 }
