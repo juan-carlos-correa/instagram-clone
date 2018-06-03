@@ -8,6 +8,15 @@ function signUpWithEmailAndPassword (payload) {
     .createUserWithEmailAndPassword(payload.email, payload.password)
 }
 
+function writeUserData({ uid, username, email, imageUrl }) {
+  return firebase.database().ref(`users/${uid}`).set({
+    username: username,
+    email: email,
+    profile_picture : imageUrl
+  })
+}
+
 export default {
-  signUpWithEmailAndPassword
+  signUpWithEmailAndPassword,
+  writeUserData
 }

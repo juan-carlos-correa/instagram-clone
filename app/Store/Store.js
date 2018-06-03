@@ -8,9 +8,9 @@ const store = createStore(
 )
 
 store.subscribe(() => {
-  console.log('new state', store.getState().authReducer)
+  console.log('new state', store.getState().auth)
 })
 
-console.log('initial state', store.getState().authReducer)
+console.log('initial state', store.getState())
 
 export default store

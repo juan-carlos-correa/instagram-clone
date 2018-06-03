@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    state
+    auth: state.auth
   }
 }
 
