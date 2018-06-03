@@ -4,10 +4,10 @@ import SignUpForm from './Forms/SignUpForm'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
-import { fetchSignInWithEmailAndPassword } from '../../Actions/Auth'
+import { fetchSignUpWithEmailAndPassword } from '../../Actions/Auth'
 
 class SignUp extends React.Component {
-  register = values => this.props.actions.fetchSignInWithEmailAndPassword(values)
+  register = values => this.props.actions.fetchSignUpWithEmailAndPassword(values)
 
   render () {
     const { navigation } = this.props
@@ -49,7 +49,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     actions: {
-      fetchSignInWithEmailAndPassword: bindActionCreators(fetchSignInWithEmailAndPassword, dispatch)
+      fetchSignUpWithEmailAndPassword: bindActionCreators(fetchSignUpWithEmailAndPassword, dispatch)
     }
   }
 }
