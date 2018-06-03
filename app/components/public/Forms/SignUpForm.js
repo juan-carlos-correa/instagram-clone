@@ -60,13 +60,14 @@ const SignUpForm = props => {
         component={MyField}
         placeholder="Repeat password"
       />
-      <Button title="SignUp" onPress={props.handleSubmit(values => console.log(values))} />
+      <Button title="SignUp" onPress={props.handleSubmit(props.register)} />
     </View>
   )
 }
 
 SignUpForm.propTypes = {
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 }
 
 export default reduxForm({

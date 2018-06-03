@@ -1,13 +1,16 @@
-import { createStore, combineReducers } from 'redux'
-import { reducer as form } from 'redux-form'
+import { createStore, applyMiddleware } from 'redux'
+import rootReducer from '../Reducers'
+import thunkMiddleware from 'redux-thunk'
 
-const testReducer = (state = {}) => state
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunkMiddleware)
+)
 
-const reducers = combineReducers({
-  testReducer,
-  form
+store.subscribe(() => {
+  console.log('new state', store.getState().authReducer)
 })
 
-const store = createStore(reducers)
+console.log('initial state', store.getState().authReducer)
 
 export default store

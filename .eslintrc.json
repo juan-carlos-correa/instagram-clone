@@ -13,6 +13,7 @@
       "no-console": 0
     },
     "globals": {
-      "console": true
+      "console": true,
+      "process": true
     }
 }

@@ -3,26 +3,33 @@ import { Text, Button, View, StyleSheet } from 'react-native'
 import SignUpForm from './Forms/SignUpForm'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
+import { fetchSignInWithEmailAndPassword } from '../../Actions/Auth'
 
-const SignUp = props => {
-  const { navigation } = props
+class SignUp extends React.Component {
+  register = values => this.props.actions.fetchSignInWithEmailAndPassword(values)
 
-  return (
-    <View style={ styles.container }>
-      <Text>SignUp</Text>
-      <SignUpForm />
-      <View style={{ marginTop: 16 }}>
-        <Button
-          title="SignIn"
-          onPress={ () => navigation.goBack() }
-        />
+  render () {
+    const { navigation } = this.props
+
+    return (
+      <View style={ styles.container }>
+        <Text>SignUp</Text>
+        <SignUpForm register={this.register}/>
+        <View style={{ marginTop: 16 }}>
+          <Button
+            title="SignIn"
+            onPress={ () => navigation.goBack() }
+          />
+        </View>
       </View>
-    </View>
-  )
+    )
+  }
 }
 
 SignUp.propTypes = {
-  navigation: PropTypes.object
+  navigation: PropTypes.object,
+  actions: PropTypes.object
 }
 
 const styles = StyleSheet.create({
@@ -39,6 +46,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = null
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: {
+      fetchSignInWithEmailAndPassword: bindActionCreators(fetchSignInWithEmailAndPassword, dispatch)
+    }
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
