@@ -1,5 +1,4 @@
 import { createStackNavigator } from 'react-navigation'
-import Home from './Home'
 import Comments from './Comments'
 import Author from './Profile'
 import Post from './Post'

@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, Button, View, StyleSheet } from 'react-native'
 import SignUpForm from './Forms/SignUpForm'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 const SignUp = props => {
   const { navigation } = props
@@ -18,6 +19,10 @@ const SignUp = props => {
       </View>
     </View>
   )
+}
+
+SignUp.propTypes = {
+  navigation: PropTypes.object
 }
 
 const styles = StyleSheet.create({

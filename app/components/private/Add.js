@@ -1,9 +1,7 @@
 import React from 'react'
-import { Text, View, Button, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 
-const Add = props => {
-  const { navigation } = props
-
+const Add = () => {
   return (
     <View style={ styles.container }>
       <Text>Add</Text>

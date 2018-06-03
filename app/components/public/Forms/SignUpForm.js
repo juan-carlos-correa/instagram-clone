@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, Text, StyleSheet, TextInput, Button }  from 'react-native'
+import { View, Button }  from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 import MyField from '../../../Shared/MyField'
+import PropTypes from 'prop-types'
 
 const validate = (values) => {
   const errors = {}
@@ -62,6 +63,10 @@ const SignUpForm = props => {
       <Button title="SignUp" onPress={props.handleSubmit(values => console.log(values))} />
     </View>
   )
+}
+
+SignUpForm.propTypes = {
+  handleSubmit: PropTypes.func
 }
 
 export default reduxForm({

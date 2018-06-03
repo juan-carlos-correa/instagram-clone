@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
 
 class Comments extends React.Component {
   render () {
@@ -12,6 +13,10 @@ class Comments extends React.Component {
       </View>
     )
   }
+}
+
+Comments.propTypes = {
+  navigation: PropTypes.object
 }
 
 const styles = StyleSheet.create({

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
 
 const Profiles = props => {
   const { navigation } = props
@@ -10,6 +11,10 @@ const Profiles = props => {
       <Button title="Post" onPress={ () => navigation.navigate('Post') }/>
     </View>
   )
+}
+
+Profiles.propTypes = {
+  navigation: PropTypes.object
 }
 
 const styles = StyleSheet.create({

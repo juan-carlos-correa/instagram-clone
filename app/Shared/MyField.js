@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TextInput, StyleSheet }  from 'react-native'
+import PropTypes from 'prop-types'
 
 const MyField = props => (
   <View style={styles.container}>
@@ -20,6 +21,16 @@ const MyField = props => (
     }
   </View>
 )
+
+MyField.propTypes = {
+  placeholder: PropTypes.string.isRequired,
+  input: PropTypes.object.isRequired,
+  value: PropTypes.string,
+  keyboardType: PropTypes.string,
+  autoCapitalize: PropTypes.string,
+  secureTextEntry: PropTypes.bool,
+  meta: PropTypes.object.isRequired
+}
 
 const styles = StyleSheet.create({
   container: {
