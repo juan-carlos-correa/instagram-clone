@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Image, View } from 'react-native'
+import { Image, View, TouchableOpacity } from 'react-native'
 import { ImagePicker } from 'expo'
 
 export default class ImagePickerComponent extends React.Component {
@@ -9,15 +9,15 @@ export default class ImagePickerComponent extends React.Component {
 
   render() {
     let { image } = this.state
-
+    let imageDefault = require('../../assets/flower.jpg')
     return (
       <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="Selecciona una imagen"
-          onPress={this._pickImage}
-        />
-        {image &&
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+        <TouchableOpacity onPress={this._pickImage}>
+        { image
+          ? <Image source={{ uri: image}} style={{ width: 160, height: 160, borderRadius: 80 }} />
+          : <Image source={imageDefault} style={{ width: 160, height: 160, borderRadius: 80 }} />
+        }
+        </TouchableOpacity>
       </View>
     )
   }
