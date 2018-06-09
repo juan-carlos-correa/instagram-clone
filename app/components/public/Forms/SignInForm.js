@@ -37,13 +37,14 @@ const SignInForm = props => {
         component={MyField}
         placeholder="Password"
       />
-      <Button title="Login" onPress={props.handleSubmit(values => console.log(values))} />
+      <Button title="Login" onPress={props.handleSubmit(props.signIn)} />
     </View>
   )
 }
 
 SignInForm.propTypes = {
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func,
+  signIn: PropTypes.func
 }
 
 export default reduxForm({

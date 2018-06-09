@@ -3,25 +3,32 @@ import { View, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import SignForm from './Forms/SignInForm'
 import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
+import { fetchSignInWithEmailAndPassword } from '../../Actions/Auth'
 
-const SignIn = props => {
-  const { navigation } = props
+class SignIn extends React.Component {
+  signIn = values => this.props.actions.fetchSignInWithEmailAndPassword(values)
 
-  return (
-    <View style={ styles.container }>
-      <SignForm />
-      <View style={{ marginTop: 16 }}>
-        <Button
-          title="SignUp"
-          onPress={() => navigation.navigate('SignUp')}
-        />
+  render () {
+    const { navigation } = this.props
+
+    return (
+      <View style={ styles.container }>
+        <SignForm signIn={this.signIn} />
+        <View style={{ marginTop: 16 }}>
+          <Button
+            title="SignUp"
+            onPress={() => navigation.navigate('SignUp')}
+          />
+        </View>
       </View>
-    </View>
-  )
+    )
+  }
 }
 
 SignIn.propTypes = {
-  navigation: PropTypes.object
+  navigation: PropTypes.object,
+  actions: PropTypes.object
 }
 
 const styles = StyleSheet.create({
@@ -34,10 +41,16 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    state
+    auth: state.auth
   }
 }
 
-const mapDispatchToProps = null
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: {
+      fetchSignInWithEmailAndPassword: bindActionCreators(fetchSignInWithEmailAndPassword, dispatch)
+    }
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

@@ -1,15 +1,22 @@
 import firebase from '../Services/Firebase'
 
-export const signUpSuccess = payload => {
+export const signInSuccess = payload => {
   return {
     type: 'SIGNIN_SUCCESS',
     payload
   }
 }
 
-export const signUpErrorData = payload => {
+export const signInErrorData = payload => {
   return {
     type: 'SIGNIN_ERROR_DATA',
+    payload
+  }
+}
+
+export const signUpErrorData = payload => {
+  return {
+    type: 'SIGNUP_ERROR_DATA',
     payload
   }
 }
@@ -25,7 +32,6 @@ export const fetchSignUpWithEmailAndPassword = payload => {
   return async function (dispatch) {
     try {
       const response = await firebase.signUpWithEmailAndPassword(payload)
-      // console.log(response)
 
       if (response) {
         const { email, uid } = response.user
@@ -33,14 +39,31 @@ export const fetchSignUpWithEmailAndPassword = payload => {
 
         // todo: write user data on verify email
         await firebase.writeUserData({ uid, email, username, imageUrl: null })
-        dispatch(signUpSuccess({ success: true }))
+        dispatch(signInSuccess({ success: true }))
         dispatch(setUserData({ email, uid, username }))
-        dispatch(signUpErrorData({ code: null, name: null }))
+        dispatch(signInErrorData({ code: null, name: null }))
       }
     } catch (e) {
       const { code, name } = e
-      dispatch(signUpSuccess({ success: false }))
-      dispatch(signUpErrorData({ code, name }))
+      dispatch(signInSuccess({ success: false }))
+      dispatch(signInErrorData({ code, name }))
+    }
+  }
+}
+
+export const fetchSignInWithEmailAndPassword = payload => {
+  return async function (dispatch) {
+    const response = await firebase.signInWithEmailAndPassword(payload)
+
+    if (response.error) {
+      const { code, message } = response.error
+      dispatch(signUpErrorData({ code, message }))
+    }
+
+    if (!response.error) {
+      const { email, uid } = response.user
+      dispatch(signUpErrorData({ code: null, message: null }))
+      dispatch(setUserData({ email, uid, username: null }))
     }
   }
 }

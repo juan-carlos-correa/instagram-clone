@@ -16,7 +16,18 @@ function writeUserData({ uid, username, email, imageUrl }) {
   })
 }
 
+function signInWithEmailAndPassword (payload) {
+  return firebase
+    .auth()
+    .signInWithEmailAndPassword(payload.email, payload.password)
+    .catch(error => {
+      const { code, message } = error
+      return { error: true, code, message}
+    })
+}
+
 export default {
   signUpWithEmailAndPassword,
-  writeUserData
+  writeUserData,
+  signInWithEmailAndPassword
 }
