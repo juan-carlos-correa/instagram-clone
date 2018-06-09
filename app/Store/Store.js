@@ -8,7 +8,7 @@ const store = createStore(
 )
 
 store.subscribe(() => {
-  console.log('new state', store.getState().auth.user)
+  console.log('new state', store.getState().imageSignUp)
 })
 
 console.log('initial state', store.getState().auth)
