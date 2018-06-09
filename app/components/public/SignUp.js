@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { fetchSignUpWithEmailAndPassword } from '../../Actions/Auth'
+import ImagePickerComponent from '../../Shared/ImagePicker'
 
 class SignUp extends React.Component {
   register = values => this.props.actions.fetchSignUpWithEmailAndPassword(values)
@@ -15,6 +16,7 @@ class SignUp extends React.Component {
     return (
       <View style={ styles.container }>
         <Text>SignUp</Text>
+        <ImagePickerComponent />
         <SignUpForm register={this.register}/>
         <View style={{ marginTop: 16 }}>
           <Button
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#ffffff',
+    paddingTop: 16
   }
 })
 

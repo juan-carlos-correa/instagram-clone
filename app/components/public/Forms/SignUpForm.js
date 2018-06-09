@@ -36,7 +36,7 @@ const validate = (values) => {
 
 const SignUpForm = props => {
   return (
-    <View>
+    <View style={{ flex: 3 }}>
       <Field
         name="username"
         component={MyField}
