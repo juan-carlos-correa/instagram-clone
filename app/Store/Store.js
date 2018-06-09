@@ -11,6 +11,6 @@ store.subscribe(() => {
   console.log('new state', store.getState().auth.user)
 })
 
-// console.log('initial state', store.getState())
+console.log('initial state', store.getState().auth)
 
 export default store

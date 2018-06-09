@@ -1,6 +1,9 @@
 import React from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { signOut } from '../../Actions/Auth'
 
 const Profiles = props => {
   const { navigation } = props
@@ -9,12 +12,14 @@ const Profiles = props => {
     <View style={ styles.container }>
       <Text>Profiles</Text>
       <Button title="Post" onPress={ () => navigation.navigate('Post') }/>
+      <Button title="Logout" onPress={ () => props.actions.signOut() }/>
     </View>
   )
 }
 
 Profiles.propTypes = {
-  navigation: PropTypes.object
+  navigation: PropTypes.object,
+  actions: PropTypes.object
 }
 
 const styles = StyleSheet.create({
@@ -24,4 +29,18 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Profiles
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: {
+      signOut: bindActionCreators(signOut, dispatch)
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profiles)

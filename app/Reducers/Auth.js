@@ -10,11 +10,7 @@ const initialState = {
       name: null
     }
   },
-  user: {
-    uid: null,
-    email: null,
-    username: null
-  }
+  user: {}
 }
 
 const authReducer = (state = initialState, action) => {
@@ -41,10 +37,8 @@ const authReducer = (state = initialState, action) => {
           }
         }
       }
-    case 'SET_USER_DATA': {
-      const { uid, email, username } = action.payload
-      return { ...state, user: { uid, email, username } }
-    }
+    case 'SET_USER_DATA':
+      return { ...state, user: action.payload }
     default:
       return state
   }

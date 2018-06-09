@@ -26,8 +26,28 @@ function signInWithEmailAndPassword (payload) {
     })
 }
 
+function authState () {
+  return new Promise((resolve, reject) => {
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        resolve(user)
+      } else {
+        reject(false)
+      }
+    })
+  })
+}
+
+function signOut () {
+  return firebase.auth().signOut()
+    .then(() => true)
+    .catch(() => false)
+}
+
 export default {
   signUpWithEmailAndPassword,
   writeUserData,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  authState,
+  signOut
 }
